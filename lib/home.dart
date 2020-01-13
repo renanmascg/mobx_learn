@@ -9,7 +9,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   final _controller = Controller();
 
   @override
@@ -18,22 +17,28 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('Mobx Flutter'),
       ),
-      body: Center(
-        child: Observer(
-          builder:(_) {
-            return Text(
-              '${_controller.counter}',
-              style: TextStyle(fontSize: 20),
-            );
-          }
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          _controller.increment();
-        },
-        child: Icon(Icons.add),
-      ),
+      body: Observer(builder: (_) {
+        return Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(labelText: 'Nome'),
+                onChanged: _controller.changeName,
+              ),
+              TextField(
+                decoration: InputDecoration(labelText: 'Sobrenome'),
+                onChanged: _controller.changeSobrenome,
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text('${_controller.nomeCompleto}')
+            ],
+          ),
+        );
+      }),
     );
   }
 }
