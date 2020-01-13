@@ -25,10 +25,15 @@ dependencies:
   cupertino_icons: ^0.1.2
   mobx:
   flutter_mobx:
+  http:
+  url_launcher:
 
 dev_dependencies:
+  mobx_codegen:
+  build_runner:
   flutter_test:
     sdk: flutter
+  
 
 
 # For information on the generic Dart part of this file, see the
